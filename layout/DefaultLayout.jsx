@@ -1,10 +1,11 @@
-import Navigation from "../components/Navigation/Navigation";
+import Navigation from "../components/Navigation";
+import Box from "@mui/material/Box";
 const DefaultLayout = ({ children }) => {
   return (
-    <div>
+    <Box margin={0} padding={0}>
       <Navigation />
       {children}
-    </div>
+    </Box>
   );
 };
 

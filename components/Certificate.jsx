@@ -34,7 +34,7 @@ const Certificate = () => {
         marginTop: "3vh",
       }}
     >
-      <Typography variant="h2" align="center" paddingTop={15}>
+      <Typography variant="h2" align="center" paddingTop={15} id="Certificate">
         자격
       </Typography>
 

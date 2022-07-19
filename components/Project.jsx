@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-
+import Box from "@mui/material/Box";
 import Link from "next/link";
 
 import ImageSlider from "./ImageSlider";
@@ -70,14 +70,6 @@ const project = [
       "주요기능인 경매,구매는 websocket을 이용하여 실시간 이벤트를 처리.",
       "프론트엔드는 빠른 개발을 위해 React보다 익숙한 Next.js를 사용. Redux-Saga를 사용하여 상태관리하고, ui는 Mui를 사용",
       "백엔드는 Node.js 와 MongoDB를 사용하여 개발 후 EC2 배포",
-      "<<최초 프로젝트 계획>>",
-      "1. React, Node.js. MySql로 To Do List 어플리케이션 제작 및 AWS EC2배포",
-      "2. Docker. Kubernetes, ECS Cheet Sheet 만들어서 첨부",
-      "3. 도커 복습 끝내면, ECS로 배포",
-      "4. Git Cheet Sheet 작성 및 첨부",
-      "5. Jenkins. CI/CD Cheet Sheet 작성 및 첨부",
-      "6. Linux Cheet Sheet 작성 및 첨부",
-      "7. 시간 남으면 Nest, TypeScript 마이그레이션",
     ],
     images: [
       {
@@ -153,7 +145,7 @@ const project = [
     ],
   },
   {
-    name: "악어코인",
+    name: "악어코인 거래소",
     type: "팀프로젝트(5명)",
     role: [
       "팀장",
@@ -255,7 +247,7 @@ const project = [
   },
   {
     name: "학원 사이트 리뉴얼 + 관리자페이지 만들기",
-    type: "팀프로젝트",
+    type: "팀프로젝트(3명)",
     role: [
       "팀장",
       "DB설계",
@@ -336,7 +328,7 @@ const project = [
       "Node.js,mysql을 이용한 CRUD를 배우고 진행한 팀프로젝트.",
       "vanilla javascript로 비동기처리하여 댓글을 만드는데 집중",
       "댓글,답글,답글에 답글을 달 수 있도록 만들었습니다. 화면은 youtube 댓글창을 참고",
-      "이벤트 버블링 때문에 머리가 너무 아파서 태어나서 처음으로 두통약을 먹으면서 코딩",
+      "이벤트 버블링을 해결하기 위해 노력",
     ],
     images: [
       {
@@ -410,7 +402,7 @@ const Project = () => {
         marginTop: "3vh",
       }}
     >
-      <Typography variant="h2" align="center" paddingTop={15}>
+      <Typography id="Project" variant="h2" align="center" paddingTop={15}>
         프로젝트
       </Typography>
 
@@ -418,14 +410,23 @@ const Project = () => {
         {project.map((p, l) => {
           return (
             <Grid item xs={12} key={p.name}>
-              <Card>
+              <Card variant="outlined">
                 <Grid container width="100%">
                   <Grid item xs={6}>
-                    {p.isSlider ? (
-                      <ImageSlider images={p.images} />
-                    ) : (
-                      <ImageList images={p.images} />
-                    )}
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: "100%",
+                      }}
+                    >
+                      {p.isSlider ? (
+                        <ImageSlider images={p.images} />
+                      ) : (
+                        <ImageList images={p.images} />
+                      )}
+                    </Box>
                   </Grid>
                   <Grid item xs={6}>
                     <CardContent>

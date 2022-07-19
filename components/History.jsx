@@ -10,13 +10,13 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 const way = [
   { date: "2010.03 ~ 2013.02", history: "배명고등학교" },
-  { date: "2013.03 ~ 2013.11", history: "방황 및 노가다" },
+  { date: "2013.03 ~ 2013.11", history: "건설현장에서 일함" },
   { date: "2013.12 ~ 2015.09", history: "군대(육군 병장 만기 전역)" },
-  { date: "2015.09 ~ 2015.12", history: "노가다" },
+  { date: "2015.09 ~ 2015.12", history: "건설현장에서 일함" },
   { date: "2015.12 ~ 2016.11", history: "대입을 위해 수능 공부" },
   {
     date: "2017.03 ~ 2021.02",
-    history: "한국교원대학교 기술교육과(주), 컴퓨터교육과(복수)",
+    history: "한국교원대학교 기술교육과(주전공), 컴퓨터교육과(복수전공)",
   },
   {
     date: "2021.03 ~ 2021.12",
@@ -31,7 +31,7 @@ const way = [
 const History = () => {
   return (
     <Stack marginY={10}>
-      <Typography variant="h2" align="center" paddingTop={15}>
+      <Typography id="History" variant="h2" align="center" paddingTop={15}>
         {" "}
         삶의 이력
       </Typography>

@@ -36,7 +36,7 @@ const skills = [
       require("../asset/images/skills/ethereum.png"),
       require("../asset/images/skills/klaytn.jpg"),
       require("../asset/images/skills/solidity.png"),
-      require("../asset/images/skills/hlf.png"),
+      // require("../asset/images/skills/hlf.png"),
     ],
   },
   {
@@ -68,7 +68,7 @@ const Skills = () => {
         borderRadius: 1,
       }}
     >
-      <Typography variant="h2" align="center" paddingTop={15}>
+      <Typography variant="h2" align="center" paddingTop={15} id="Skill">
         기술
       </Typography>
       {skills.map((v, i) => {
@@ -87,8 +87,8 @@ const Skills = () => {
                       key={image}
                       src={image}
                       alt={`${v.tag} 관련 logo`}
-                      width={150}
-                      height={150}
+                      width={130}
+                      height={130}
                     />
                   </Grid>
                 );

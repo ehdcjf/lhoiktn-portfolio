@@ -41,7 +41,7 @@ const Archive = () => {
         marginTop: "3vh",
       }}
     >
-      <Typography variant="h2" align="center" paddingTop={15}>
+      <Typography id="Archive" variant="h2" align="center" paddingTop={15}>
         보관소
       </Typography>
 

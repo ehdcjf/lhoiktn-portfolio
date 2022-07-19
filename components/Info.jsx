@@ -9,7 +9,7 @@ import Hero from "../asset/images/hero/profile-img4.jpeg";
 const Info = () => {
   return (
     <Stack>
-      <Typography variant="h2" align="center">
+      <Typography variant="h2" align="center" id="Info">
         기본정보
       </Typography>
       <Grid container padding={10} marginBottom={10} spacing={12}>
