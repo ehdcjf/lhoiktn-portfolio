@@ -32,7 +32,7 @@ const Navigation = () => {
           </IconButton>
 
           <Stack direction="row" spacing={2}>
-            <Link href="#Info">
+            <Link href="#">
               <Typography variant="h6" color="white">
                 Info
               </Typography>

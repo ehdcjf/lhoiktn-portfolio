@@ -9,7 +9,7 @@ import Hero from "../asset/images/hero/profile-img4.jpeg";
 const Info = () => {
   return (
     <Stack>
-      <Typography variant="h2" align="center" id="Info">
+      <Typography variant="h2" align="center">
         기본정보
       </Typography>
       <Grid container padding={10} marginBottom={10} spacing={12}>
@@ -17,9 +17,9 @@ const Info = () => {
           <Box
             sx={{
               display: "flex",
-              alignItems: "center",
-              flexDirection: "column",
-              justifyContent: "center",
+              alignItems: "end",
+              flexDirection: "column-reverse",
+              justifyContent: "end",
               paddingLeft: "15vw",
             }}
           >
