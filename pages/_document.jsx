@@ -6,11 +6,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <body>
-          <Head></Head>
-          <Main />
-          <NextScript />
-        </body>
+        <Head></Head>
+        <Main />
+        <NextScript />
       </Html>
     );
   }

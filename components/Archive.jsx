@@ -1,4 +1,4 @@
-import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -33,63 +33,122 @@ const Archive = () => {
         alignItems: "center",
         flexDirection: "column",
         justifyContent: "center",
-        p: 1,
         m: 1,
         bgcolor: "background.paper",
         borderRadius: 1,
         width: "100%",
-        marginTop: "3vh",
       }}
     >
-      <Typography id="Archive" variant="h2" align="center" paddingTop={15}>
+      <Typography
+        id="Archive"
+        sx={{
+          typography: {
+            xl: "h2",
+            lg: "h2",
+            md: "h3",
+            sm: "h3",
+            sx: "h4",
+          },
+        }}
+        align="center"
+        marginTop={{ xl: "20vh", lg: "20vh", md: "10vh" }}
+        marginBottom="4vh"
+      >
         보관소
       </Typography>
 
-      <Grid container paddingX={5} paddingTop={5} spacing={5} width="100%">
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        justifyContent="space-evenly"
+        alignContent="space-evenly"
+        width="100%"
+      >
         {archive.map((a, l) => {
           return (
-            <Grid item xs={6} key={a.name}>
-              <Card>
-                <CardContent>
-                  <Typography
-                    variant="h4"
-                    align="center"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    paddingBottom={3}
-                  >
-                    <Image
-                      key={a.image}
-                      src={a.image}
-                      alt={`${a.name} logo`}
-                      width={70}
-                      height={70}
-                    />
-                    {a.name}
-                  </Typography>
-                  <Typography variant="h6" align="center" paddingBottom={2}>
-                    {a.summary}
-                  </Typography>
-                  <Typography variant="h6" align="center">
-                    링크:{"  "}
-                    <Link href={a.link} target="_blank">
-                      {a.link}
-                    </Link>
-                  </Typography>
-                  {a.content.map((con, ci) => {
-                    return (
-                      <Typography variant="body1" align="center" key={con}>
-                        {con}
-                      </Typography>
-                    );
-                  })}
-                </CardContent>
-              </Card>
-            </Grid>
+            <Card key={a.name} sx={{ maxWidth: 600, marginBottom: 1 }}>
+              <CardContent>
+                <Typography
+                  sx={{
+                    typography: {
+                      xl: "h4",
+                      lg: "h5",
+                      md: "h6",
+                      sm: "body1",
+                      sx: "body2",
+                    },
+                  }}
+                  align="center"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  paddingBottom={3}
+                >
+                  <Image
+                    key={a.image}
+                    src={a.image}
+                    alt={`${a.name} logo`}
+                    width={70}
+                    height={70}
+                  />
+                  {a.name}
+                </Typography>
+                <Typography
+                  sx={{
+                    typography: {
+                      xl: "h4",
+                      lg: "h5",
+                      md: "h6",
+                      sm: "body1",
+                      sx: "body2",
+                    },
+                  }}
+                  align="center"
+                  paddingBottom={2}
+                >
+                  {a.summary}
+                </Typography>
+                <Typography
+                  sx={{
+                    typography: {
+                      xl: "h4",
+                      lg: "h5",
+                      md: "h6",
+                      sm: "body2",
+                      sx: "body2",
+                    },
+                  }}
+                  align="left"
+                >
+                  링크:{"  "}
+                  <Link href={a.link} target="_blank">
+                    {a.link}
+                  </Link>
+                </Typography>
+                {a.content.map((con, ci) => {
+                  return (
+                    <Typography
+                      sx={{
+                        typography: {
+                          xl: "h4",
+                          lg: "h5",
+                          md: "h6",
+                          sm: "body1",
+                          sx: "body2",
+                        },
+                      }}
+                      align="left"
+                      key={con}
+                    >
+                      - {con}
+                    </Typography>
+                  );
+                })}
+              </CardContent>
+            </Card>
           );
         })}
-      </Grid>
+      </Box>
     </Stack>
   );
 };

@@ -10,31 +10,39 @@ import Project from "../components/Project";
 import History from "../components/History";
 import Career from "../components/Career";
 import Education from "../components/Education";
+import Navigation from "../components/Navigation";
 
 export default function Home() {
   return (
-    <DefaultLayout>
-      <Box padding={10} margin={0}>
-        <Stack
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "column",
-            justifyContent: "center",
-            bgcolor: "background.paper",
-            borderRadius: 1,
-          }}
-        >
+    <>
+      <Navigation />
+      <Grid container padding="2vw" width="100vw">
+        <Grid item xs={12} marginBottom={10}>
           <Info />
+        </Grid>
+        <Grid item xs={12} marginBottom={10}>
           <Skills />
+        </Grid>
+        <Grid item xs={12} marginBottom={10}>
           <Certificate />
+        </Grid>
+        <Grid item xs={12} marginBottom={10}>
           <Archive />
+        </Grid>
+        <Grid item xs={12} marginBottom={10}>
           <Education />
+        </Grid>
+        <Grid item xs={12} marginBottom={10}>
           <Career />
+        </Grid>
+        <Grid item xs={12} marginBottom={10}>
           <Project />
+        </Grid>
+        <Grid item xs={12} marginBottom={10}>
           <History />
-        </Stack>
-      </Box>
-    </DefaultLayout>
+        </Grid>
+        <Grid item xs={12} marginBottom={10}></Grid>
+      </Grid>
+    </>
   );
 }

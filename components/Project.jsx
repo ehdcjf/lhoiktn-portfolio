@@ -1,39 +1,45 @@
 import Grid from "@mui/material/Grid";
-
+import { useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
-
+import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
-import Link from "next/link";
-
-import ImageSlider from "./ImageSlider";
-import ImageList from "./ImageList";
+import Link from "@mui/material/Link";
+import CardHeader from "@mui/material/CardHeader";
+import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import projectImage0100 from "../asset/images/project/portfolio-1.png";
-import projectImage0101 from "../asset/images/project/portfolio-1-1.png";
-import projectImage0102 from "../asset/images/project/portfolio-1-2.png";
-import projectImage0201 from "../asset/images/project/portfolio-2_1.png";
-import projectImage0202 from "../asset/images/project/portfolio-2_2.png";
-import projectImage0203 from "../asset/images/project/portfolio-2_3.png";
-import projectImage0204 from "../asset/images/project/portfolio-2_4.png";
-import projectImage0301 from "../asset/images/project/portfolio-3-1.gif";
-import projectImage0302 from "../asset/images/project/portfolio-3-2.gif";
-import projectImage0303 from "../asset/images/project/portfolio-3_1.png";
-import projectImage0304 from "../asset/images/project/portfolio-3_2.png";
-import projectImage0305 from "../asset/images/project/portfolio-3_3.png";
-import projectImage0306 from "../asset/images/project/portfolio-3_4.png";
-import projectImage0401 from "../asset/images/project/portfolio-4-1.gif";
-import projectImage0501 from "../asset/images/project/portfolio-5-1.png";
-import projectImage0502 from "../asset/images/project/portfolio-5-10.png";
-import projectImage0601 from "../asset/images/project/portfolio-6-1.png";
-import projectImage0602 from "../asset/images/project/portfolio-6-3.png";
-import projectImage0603 from "../asset/images/project/portfolio-6-4.png";
-import projectImage0604 from "../asset/images/project/portfolio-6-5.png";
-import projectImage0605 from "../asset/images/project/portfolio-6-6.png";
-import projectImage0606 from "../asset/images/project/portfolio-6-7.png";
-import projectImage0701 from "../asset/images/project/portfolio-8.png";
-import projectImage0702 from "../asset/images/project/portfolio-8-1.png";
+import MobileStepper from "@mui/material/MobileStepper";
+import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+const projectImage0100 = "../asset/images/project/portfolio-1.png";
+const projectImage0101 = "../asset/images/project/portfolio-1-1.png";
+const projectImage0102 = "../asset/images/project/portfolio-1-2.png";
+const projectImage0201 = "../asset/images/project/portfolio-2_1.png";
+const projectImage0202 = "../asset/images/project/portfolio-2_2.png";
+const projectImage0203 = "../asset/images/project/portfolio-2_3.png";
+const projectImage0204 = "../asset/images/project/portfolio-2_4.png";
+const projectImage0301 = "../asset/images/project/portfolio-3-1.gif";
+const projectImage0302 = "../asset/images/project/portfolio-3-2.gif";
+const projectImage0303 = "../asset/images/project/portfolio-3_1.png";
+const projectImage0304 = "../asset/images/project/portfolio-3_2.png";
+const projectImage0305 = "../asset/images/project/portfolio-3_3.png";
+const projectImage0306 = "../asset/images/project/portfolio-3_4.png";
+const projectImage0401 = "../asset/images/project/portfolio-4-1.gif";
+const projectImage0501 = "../asset/images/project/portfolio-5-1.png";
+const projectImage0502 = "../asset/images/project/portfolio-5-10.png";
+const projectImage0601 = "../asset/images/project/portfolio-6-1.png";
+const projectImage0602 = "../asset/images/project/portfolio-6-3.png";
+const projectImage0603 = "../asset/images/project/portfolio-6-4.png";
+const projectImage0604 = "../asset/images/project/portfolio-6-5.png";
+const projectImage0605 = "../asset/images/project/portfolio-6-6.png";
+const projectImage0606 = "../asset/images/project/portfolio-6-7.png";
+const projectImage0701 = "../asset/images/project/portfolio-8.png";
+const projectImage0702 = "../asset/images/project/portfolio-8-1.png";
 
 const project = [
   {
@@ -387,126 +393,172 @@ const project = [
   },
 ];
 
+const CardImage = ({ images }) => {
+  const [activeStep, setActiveStep] = React.useState(0);
+  const maxSteps = images.length;
+  const theme = useTheme();
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+  return (
+    <Box>
+      <CardMedia
+        sx={{ minHeight: 200, maxHeight: 800 }}
+        component="img"
+        image={images[activeStep].imgPath}
+        alt="프로젝트 이미지"
+      />
+      {maxSteps == 1 ? (
+        <></>
+      ) : (
+        <MobileStepper
+          variant="text"
+          steps={maxSteps}
+          position="static"
+          activeStep={activeStep}
+          nextButton={
+            <Button
+              size="small"
+              onClick={handleNext}
+              disabled={activeStep === maxSteps - 1}
+            >
+              Next
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowLeft />
+              ) : (
+                <KeyboardArrowRight />
+              )}
+            </Button>
+          }
+          backButton={
+            <Button
+              size="small"
+              onClick={handleBack}
+              disabled={activeStep === 0}
+            >
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowRight />
+              ) : (
+                <KeyboardArrowLeft />
+              )}
+              Back
+            </Button>
+          }
+        />
+      )}
+    </Box>
+  );
+};
+
 const Project = () => {
   return (
-    <Stack
-      sx={{
-        alignItems: "center",
-        flexDirection: "column",
-        justifyContent: "center",
-        p: 1,
-        m: 1,
-        bgcolor: "background.paper",
-        borderRadius: 1,
-        width: "100%",
-        marginTop: "3vh",
-      }}
-    >
-      <Typography id="Project" variant="h2" align="center" paddingTop={15}>
+    <>
+      <Typography
+        id="Project"
+        sx={{
+          typography: {
+            xl: "h2",
+            lg: "h2",
+            md: "h3",
+            sm: "h3",
+            sx: "h4",
+          },
+        }}
+        marginTop={{ xl: "20vh", lg: "20vh", md: "10vh" }}
+        marginBottom="4vh"
+        align="center"
+      >
         프로젝트
       </Typography>
 
-      <Grid container paddingTop={5} spacing={10} width="100%">
-        {project.map((p, l) => {
-          return (
-            <Grid item xs={12} key={p.name}>
-              <Card variant="outlined">
-                <Grid container width="100%">
-                  <Grid item xs={6}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        height: "100%",
-                      }}
+      {project.map((p, l) => {
+        return (
+          <Card
+            variant="outlined"
+            key={p.name + p.date}
+            sx={{
+              marginBottom: "5vh",
+              // border: "3px solid #555555",
+              padding: "2vh",
+            }}
+          >
+            <CardHeader
+              title={p.name}
+              subheader={`${p.date}` + "  " + `${p.type}`}
+            />
+            <Box
+              display="flex"
+              flexWrap="wrap"
+              justifyContent="space-evenly"
+              alignContent="space-evenly"
+            >
+              <CardImage images={p.images} />
+
+              <CardContent sx={{ minWidth: 300 }}>
+                {/* <Typography variant="body1" align="center" marginBottom={2}>
+                  {p.type}
+                </Typography> */}
+
+                {p.role.length > 0 ? (
+                  <Typography variant="body1" align="left" marginBottom={2}>
+                    {"역할: "}
+                    {p.role.map((r) => {
+                      return `${r}. `;
+                    })}
+                  </Typography>
+                ) : (
+                  <></>
+                )}
+
+                {p.link.map((l) => {
+                  return (
+                    <Typography
+                      variant="body1"
+                      align="left"
+                      key={l.link}
+                      marginBottom={2}
                     >
-                      {p.isSlider ? (
-                        <ImageSlider images={p.images} />
-                      ) : (
-                        <ImageList images={p.images} />
-                      )}
-                    </Box>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <CardContent>
-                      <Typography variant="h4" align="center" marginBottom={3}>
-                        {p.name}
+                      {l.name}:
+                      <Link href={l.link} target="_blank">
+                        {l.link}
+                      </Link>
+                    </Typography>
+                  );
+                })}
+                {p.skill.map((s) => {
+                  return (
+                    <Typography
+                      variant="body1"
+                      align="left"
+                      key={p.name + s.tag}
+                      marginBottom={1}
+                    >
+                      {s.tag}: {s.skill}
+                    </Typography>
+                  );
+                })}
+                <Typography variant="body1" align="left" marginTop={2}>
+                  프로젝트 설명:
+                </Typography>
+                <Stack>
+                  {p.detail.map((d) => {
+                    return (
+                      <Typography variant="body1" align="left" key={d}>
+                        {`- ${d}`}
                       </Typography>
-                      <Typography
-                        variant="body1"
-                        align="center"
-                        marginBottom={2}
-                      >
-                        {p.type}
-                      </Typography>
-                      <Typography variant="body1" align="left" marginBottom={2}>
-                        프로젝트 기간: {p.date}
-                      </Typography>
-
-                      {p.role.length > 0 ? (
-                        <Typography
-                          variant="body1"
-                          align="left"
-                          marginBottom={2}
-                        >
-                          {"역할: "}
-                          {p.role.map((r) => {
-                            return `${r}. `;
-                          })}
-                        </Typography>
-                      ) : (
-                        <></>
-                      )}
-
-                      {p.link.map((l) => {
-                        return (
-                          <Typography
-                            variant="body1"
-                            align="left"
-                            key={l.link}
-                            marginBottom={2}
-                          >
-                            {l.name}:
-                            <Link href={l.link} target="_blank">
-                              {l.link}
-                            </Link>
-                          </Typography>
-                        );
-                      })}
-                      {p.skill.map((s) => {
-                        return (
-                          <Typography
-                            variant="body1"
-                            align="left"
-                            key={p.name + s.tag}
-                            marginBottom={1}
-                          >
-                            {s.tag}: {s.skill}
-                          </Typography>
-                        );
-                      })}
-                      <Typography variant="body1" align="left" marginTop={2}>
-                        프로젝트 설명:
-                      </Typography>
-                      <Stack>
-                        {p.detail.map((d) => {
-                          return (
-                            <Typography variant="body1" align="left" key={d}>
-                              {`- ${d}`}
-                            </Typography>
-                          );
-                        })}
-                      </Stack>
-                    </CardContent>
-                  </Grid>
-                </Grid>
-              </Card>
-            </Grid>
-          );
-        })}
-      </Grid>
-    </Stack>
+                    );
+                  })}
+                </Stack>
+              </CardContent>
+            </Box>
+          </Card>
+        );
+      })}
+    </>
   );
 };
 

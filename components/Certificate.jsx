@@ -26,36 +26,89 @@ const Certificate = () => {
         alignItems: "center",
         flexDirection: "column",
         justifyContent: "center",
-        p: 1,
-        m: 1,
         bgcolor: "background.paper",
         borderRadius: 1,
+        padding: "1vh",
         width: "100%",
-        marginTop: "3vh",
       }}
     >
-      <Typography variant="h2" align="center" paddingTop={15} id="Certificate">
+      <Typography
+        align="center"
+        sx={{
+          typography: {
+            xl: "h2",
+            lg: "h2",
+            md: "h3",
+            sm: "h3",
+            sx: "h4",
+          },
+        }}
+        marginTop={{ xl: "20vh", lg: "20vh", md: "10vh" }}
+        marginBottom="4vh"
+        id="Certificate"
+      >
         자격
       </Typography>
 
-      <Grid container paddingX={5} paddingTop={5} spacing={5} width="100%">
+      <Grid container>
         {certificate.map((c, l) => {
           return (
-            <Grid item xs={4} key={c.name}>
-              <Card>
-                <CardHeader>{c.name}</CardHeader>
-                <CardContent>
-                  <Typography variant="h4" align="center">
-                    {c.name}
-                  </Typography>
-                  <Typography variant="body1" align="center">
-                    발급일자: {c.date}
-                  </Typography>
-                  <Typography variant="body1" align="center">
-                    발급기관: {c.issuer}
-                  </Typography>
-                </CardContent>
-              </Card>
+            <Grid
+              item
+              xs={12}
+              key={c.name}
+              sx={{
+                border: "1px solid #aaa",
+                borderRadius: 1,
+                padding: 1,
+                marginBottom: 1,
+              }}
+            >
+              <Typography
+                sx={{
+                  typography: {
+                    xl: "h4",
+                    lg: "h5",
+                    md: "h6",
+                    sm: "body1",
+                    sx: "body2",
+                  },
+                }}
+                gutterBottom
+                align="left"
+              >
+                {c.name}
+              </Typography>
+              <Typography
+                sx={{
+                  typography: {
+                    xl: "h6",
+                    lg: "h6",
+                    md: "h6",
+                    sm: "h6",
+                    sx: "h6",
+                  },
+                }}
+                gutterBottom
+                align="left"
+              >
+                발급일자: {c.date}
+              </Typography>
+              <Typography
+                sx={{
+                  typography: {
+                    xl: "h6",
+                    lg: "h6",
+                    md: "h6",
+                    sm: "h6",
+                    sx: "h6",
+                  },
+                }}
+                gutterBottom
+                align="left"
+              >
+                발급기관: {c.issuer}
+              </Typography>
             </Grid>
           );
         })}

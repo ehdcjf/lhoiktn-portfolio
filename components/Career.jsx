@@ -4,6 +4,7 @@ import Stack from "@mui/material/Stack";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,7 +12,7 @@ import Image from "next/image";
 import ComputerIcon from "@mui/icons-material/Computer";
 
 import Typography from "@mui/material/Typography";
-import careerImage001 from "../asset/images/career/citylabs.jpg";
+const careerImage001 = "../asset/images/career/citylabs.jpg";
 
 const career = [
   {
@@ -54,78 +55,103 @@ const Career = () => {
         marginTop: "3vh",
       }}
     >
-      <Typography variant="h2" align="center" paddingTop={15} id="Career">
+      <Typography
+        align="center"
+        sx={{
+          typography: {
+            xl: "h2",
+            lg: "h2",
+            md: "h3",
+            sm: "h3",
+            sx: "h4",
+          },
+        }}
+        marginTop={{ xl: "20vh", lg: "20vh", md: "10vh" }}
+        marginBottom="4vh"
+        id="Career"
+      >
         경력
       </Typography>
 
-      <Grid container paddingTop={5} spacing={10} width="100%">
-        {career.map((c, l) => {
-          return (
-            <Grid item xs={12} key={c.name}>
-              <Card variant="outlined">
-                <Grid container width="100%">
-                  <Grid item xs={6}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        height: "100%",
-                      }}
-                    >
-                      <Image
-                        key={c.name}
-                        src={c.image}
-                        alt={`${c.name}logo`}
-                        width={500}
-                        height={400}
-                      />
-                    </Box>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <CardContent>
-                      <Typography variant="h4" align="center" marginBottom={3}>
-                        {c.name}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        align="center"
-                        marginBottom={2}
-                      >
-                        {c.date}
-                      </Typography>
+      {career.map((c, l) => {
+        return (
+          <Card variant="outlined" key={c.name}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <CardMedia
+                sx={{ minHeight: 100, maxHeight: 800 }}
+                component="img"
+                image={c.image}
+                alt="프로젝트 이미지"
+              />
+            </Box>
+            <CardContent>
+              <Typography
+                sx={{
+                  typography: {
+                    xl: "h2",
+                    lg: "h2",
+                    md: "h3",
+                    sm: "h3",
+                    sx: "h4",
+                  },
+                }}
+                align="center"
+                marginBottom={3}
+              >
+                {c.name}
+              </Typography>
+              <Typography
+                sx={{
+                  typography: {
+                    xl: "h4",
+                    lg: "h5",
+                    md: "h6",
+                    sm: "body1",
+                    sx: "body2",
+                  },
+                }}
+                align="center"
+                marginBottom={2}
+              >
+                {c.date}
+              </Typography>
 
-                      {c.task.map((t) => {
-                        return (
-                          <Box key={t.name} marginBottom={2}>
-                            <Typography
-                              sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                flexWrap: "wrap",
-                              }}
-                              variant="subtitle1"
-                              align="left"
-                            >
-                              <ComputerIcon />
-                              {t.name}
-                            </Typography>
-                            {t.role.map((tr) => {
-                              return (
-                                <Typography key={tr}>{"·  " + tr}</Typography>
-                              );
-                            })}
-                          </Box>
-                        );
-                      })}
-                    </CardContent>
-                  </Grid>
-                </Grid>
-              </Card>
-            </Grid>
-          );
-        })}
-      </Grid>
+              {c.task.map((t) => {
+                return (
+                  <Box key={t.name} marginBottom={2}>
+                    <Typography
+                      sx={{
+                        // display: "flex",
+                        // alignItems: "center",
+                        // flexWrap: "wrap",
+                        typography: {
+                          xl: "h4",
+                          lg: "h5",
+                          md: "h6",
+                          sm: "body1",
+                          sx: "body2",
+                        },
+                      }}
+                      align="left"
+                    >
+                      {t.name}
+                    </Typography>
+                    {t.role.map((tr) => {
+                      return <Typography key={tr}>{"·  " + tr}</Typography>;
+                    })}
+                  </Box>
+                );
+              })}
+            </CardContent>
+          </Card>
+        );
+      })}
     </Stack>
   );
 };

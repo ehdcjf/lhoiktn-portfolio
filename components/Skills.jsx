@@ -62,20 +62,45 @@ const Skills = () => {
         alignItems: "center",
         flexDirection: "column",
         justifyContent: "center",
-        p: 1,
-        m: 1,
+        padding: 0,
+        margin: 0,
         bgcolor: "background.paper",
         borderRadius: 1,
       }}
     >
-      <Typography variant="h2" align="center" paddingTop={15} id="Skill">
+      <Typography
+        sx={{
+          typography: {
+            xl: "h2",
+            lg: "h2",
+            md: "h3",
+            sm: "h3",
+            sx: "h4",
+          },
+        }}
+        align="center"
+        id="Skill"
+        marginTop={{ xl: "20vh", lg: "20vh", md: "10vh" }}
+        marginBottom="4vh"
+      >
         기술
       </Typography>
       {skills.map((v, i) => {
         return (
-          <Box key={v.tag} paddingY={5} width="100%">
+          <Box key={v.tag} width="100%">
             <Divider>
-              <Typography variant="h4" align="center">
+              <Typography
+                sx={{
+                  typography: {
+                    xl: "h5",
+                    lg: "h5",
+                    md: "h5",
+                    sm: "h5",
+                    sx: "h5",
+                  },
+                }}
+                align="center"
+              >
                 {v.tag}
               </Typography>
             </Divider>
