@@ -49,14 +49,13 @@ const project = [
     isSlider: true,
     skill: [
       { tag: "Frontend", skill: "Next.js, redux, redux-saga" },
-      { tag: "Backend", skill: "Node.js, websocket" },
-      { tag: "BlockChain", skill: "caver.js, KIP-7, KIP-17" },
-      { tag: "Database", skill: "MariaDB" },
-      { tag: "Deployment", skill: "AWS EC2, AWS S3" },
+      { tag: "Backend", skill: "Node.js(express)" },
+      { tag: "Database", skill: "MongoDB(Mongoose), Mongo Atlas" },
+      { tag: "Deployment", skill: "AWS EC2" },
     ],
     date: "2022.7.12 ~ 2022.07.18",
     link: [
-      { name: "프로젝트 URL", link: "http://3.35.121.149/" },
+      { name: "프로젝트 URL", link: "http://qual.ehdcjf.com/" },
       {
         name: "프론트엔드 깃허브",
         link: "https://github.com/ehdcjf/goals_front",
@@ -67,7 +66,7 @@ const project = [
       },
       {
         name: "Swagger API",
-        link: "http://3.35.121.149/api/docs/",
+        link: "http://qual.ehdcjf.com/api/docs/",
       },
     ],
     detail: [
