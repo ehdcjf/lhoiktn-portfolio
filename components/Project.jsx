@@ -72,7 +72,6 @@ const project = [
     detail: [
       "간단한 ToDoList Web Application",
       "Node.js 서버개발자 채용공고의 자격요건을 충족하기 위해 시작한 프로젝트",
-      "주요기능인 경매,구매는 websocket을 이용하여 실시간 이벤트를 처리.",
       "프론트엔드는 빠른 개발을 위해 React보다 익숙한 Next.js를 사용. Redux-Saga를 사용하여 상태관리하고, ui는 Mui를 사용",
       "백엔드는 Node.js 와 MongoDB를 사용하여 개발 후 EC2 배포",
     ],
